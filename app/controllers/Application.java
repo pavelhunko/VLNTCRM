@@ -11,7 +11,7 @@ public class Application extends Controller {
     static Form<User> registerUserForm = Form.form(User.class);
 
     public static Result index() {
-	return ok(views.html.index.render(""));
+	return ok(views.html.index.render(registerUserForm));
     }
 
     public static Result register() {
@@ -29,7 +29,4 @@ public class Application extends Controller {
 	}
     }
     
-    public static Result show(String email) {
-	   return ok(views.html.show.render());
-	}
 }

@@ -17,8 +17,7 @@
       </tr>
       @for(user <- users) {
          <tr>
-            <td><a href="@routes.Application.show(user.email)">@user.email</a>
-            </td>
+            <td>@user.email</td>
             <td>@user.firstName</td>
             <td>@user.lastName</td>
             
