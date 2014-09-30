@@ -15,7 +15,7 @@ public class ModelsTest extends WithApplication {
 
    @Test
     public void tryAuthenticateUser(){
-	new User("alex@test.com", "Alex", "secret", "78987877", "fb.com", "1 north ave, CA").save();
+	//new User("alex@test.com", "Alex", "secret", "78987877", "fb.com", "1 north ave, CA").save();
 	
 	assertNotNull(User.authenticate("alex@test.com", "secret"));
 	assertNull(User.authenticate("north@at.yn", "north"));
