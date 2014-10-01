@@ -11,22 +11,22 @@ create table contact (
   phone                     varchar(255),
   street_address            varchar(255),
   company_name              varchar(255),
-  user_user_id              bigint)
+  user_id                   bigint)
 ;
 
 create table user (
-  user_id                   bigint not null,
-  email                     varchar(255),
+  id                        bigint not null,
   first_name                varchar(255),
   last_name                 varchar(255),
+  email                     varchar(255),
   password                  varchar(255),
-  constraint pk_user primary key (user_id))
+  constraint pk_user primary key (id))
 ;
 
 create sequence user_seq;
 
-alter table contact add constraint fk_contact_user_1 foreign key (user_user_id) references user (user_id) on delete restrict on update restrict;
-create index ix_contact_user_1 on contact (user_user_id);
+alter table contact add constraint fk_contact_user_1 foreign key (user_id) references user (id) on delete restrict on update restrict;
+create index ix_contact_user_1 on contact (user_id);
 
 
 
