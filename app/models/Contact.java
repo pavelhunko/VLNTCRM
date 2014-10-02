@@ -43,8 +43,7 @@ public class Contact extends Model {
 	public static Contact create(String fName, String lName, String email, String phone,
 			String sAddress, String comName, Long user_id) {
 		Contact contact = new Contact(null, fName, lName, email, phone, sAddress, comName);
-		//Contact contact = new Contact(null, null, null, null, null, null, null);
-		contact.user = User.findByID.ref(user_id);
+		contact.user = User.findByID.byId(user_id);
 		contact.save(); // ????
 		return contact;
 	}

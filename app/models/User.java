@@ -5,8 +5,13 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+import controllers.routes;
+//import controllers.Application.Login;
+import play.data.Form;
 import play.data.validation.Constraints.Required;
 import play.db.ebean.Model;
+import play.mvc.Result;
+import views.html.login;
 
 @Entity
 public class User extends Model {
@@ -43,16 +48,16 @@ public class User extends Model {
 		user.save();
 	}
 
-	// hash password
-	public static User authenticate(String _email, String _password) {
-		return find.where().eq("email", _email).eq("password", _password)
-				.findUnique();
-	}
-
+	public static User authenticate(String email, String password) {
+	        return find.where().eq("email", email)
+	            .eq("password", password).findUnique();
+	    }
 	public String validate() {
-		if (User.authenticate(email, password) == null) {
-			return "Invalid user or password";
-		}
-		return null;
-	}
+	        if (authenticate(email, password) == null) {
+	            return "Invalid email or password";
+	        }
+	        return null;
+	    }
+
+	
 }

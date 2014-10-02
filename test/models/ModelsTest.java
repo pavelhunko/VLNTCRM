@@ -21,4 +21,9 @@ public class ModelsTest extends WithApplication {
 	assertNull(User.authenticate("north@at.yn", "north"));
 	assertNull(User.authenticate("alex@test.com", "sekret"));
     }
+   
+   @Test
+   public void tryCreateContact(){
+       new Contact((long) 123, "asd", "asd", "asd@34", "34343434", "1 st", "mycom").save();
+   }
 }
